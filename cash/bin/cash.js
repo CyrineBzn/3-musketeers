@@ -1,4 +1,5 @@
 /*eslint-disable no-process-exit*/
+
 const got = require('got');
 const money = require('money');
 const chalk = require('chalk');
