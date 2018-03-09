@@ -1,5 +1,9 @@
 /*eslint-disable no-process-exit*/
 
+/**
+ * Define constants and import librairies 
+ */
+
 const got = require('got');
 const money = require('money');
 const chalk = require('chalk');
@@ -7,6 +11,11 @@ const ora = require('ora');
 const currencies = require('../lib/currencies.json');
 
 const API = 'https://api.fixer.io/latest';
+
+/**
+ * Search and get the needed information about the currencies from the imported currencies.json
+ * and convert one currency to another one
+*/
 
 const convert = configuration => {
   const {amount, to, from, response, loading} = configuration;
