@@ -1,10 +1,19 @@
 /*eslint-disable no-process-exit*/
+
+/**
+ * Define constants and import dependencies
+ */
+
 const chalk = require('chalk');
 const updateNotifier = require('update-notifier');
 const Conf = require('conf');
 const pkg = require('../package.json');
 
 const config = new Conf();
+
+/**
+ * Save the new default currencies 
+ */
 
 updateNotifier({pkg}).notify();
 
@@ -20,11 +29,17 @@ const saveCurrencies = argv => {
   process.exit(1);
 };
 
+/**
+ * Display the current version of the program on the terminal
+ */
 const version = () => {
   console.log(pkg.version);
   process.exit(1);
 };
 
+/**
+ * Display help, explaning how to use commands and giving some examples
+ */
 const help = () => {
   console.log(`
 Usage:
@@ -57,6 +72,9 @@ Examples:
   process.exit(1);
 };
 
+/**
+ * Commands for different use 
+ */
 const helpers = argv => {
   // Version
   if (argv.indexOf('--version') !== - 1 || argv.indexOf('-v') !== - 1) {
@@ -81,4 +99,7 @@ const helpers = argv => {
   }
 };
 
+/**
+ * Exporting the function to be used in index.js
+ */
 module.exports = helpers;

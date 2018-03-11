@@ -1,6 +1,10 @@
 # Cash
 
-This project allows to convert currencies. You can choose the amount you want to convert and the currancy and the program gives you the result. 
+This project allows to convert currencies. You can choose the amount you want to convert and the currancy and the program gives you the result in your terminal. 
+
+## Available Curruencies 
+
+You can find [here](./lib/currencies.json) all the available currencies. 
 
 ## Getting Started
 

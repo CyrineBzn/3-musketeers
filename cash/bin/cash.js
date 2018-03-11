@@ -14,7 +14,7 @@ const API = 'https://api.fixer.io/latest';
 
 /**
  * Search and get the needed information about the currencies from the imported currencies.json
- * and convert one currency to another one
+ * and convert an amount to other currencies and display it on the terminal. 
 */
 
 const convert = configuration => {
@@ -44,6 +44,14 @@ const convert = configuration => {
   process.exit(1);
 };
 
+/**
+ * Congiguration of inputs and using the API to convert
+ * @param {Object} command - Object with all parameters.
+ * @param {string} command.amount - The amount to be converted.
+ * @param {string} command.from - The origin currency.
+ * @param {Array} command.to - The target currencies.
+ */
+
 const cash = async command => {
   const amount = command.amount;
   const from = command.from.toUpperCase();
@@ -61,8 +69,10 @@ const cash = async command => {
     }
   });
 
+// start the ora dependencie
   loading.start();
 
+//Using the Api to get the needed data
   try {
     const response = await got(API, {'json': true});
 
@@ -78,4 +88,7 @@ const cash = async command => {
   }
 };
 
+/**
+ * Exporting the function to be used in index.js
+ */
 module.exports = cash;
